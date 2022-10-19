@@ -3234,6 +3234,16 @@
           "bin/placeholder/Application.dll": {}
         }
       },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
       "Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -9654,6 +9664,11 @@
       "path": "../../src/Application/Application.csproj",
       "msbuildProject": "../../src/Application/Application.csproj"
     },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../../src/Domain/Domain/Domain.csproj",
+      "msbuildProject": "../../src/Domain/Domain/Domain.csproj"
+    },
     "Infrastructure/1.0.0": {
       "type": "project",
       "path": "../../src/Infrastructure/Infrastructure.csproj",
@@ -9667,6 +9682,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Domain >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Testing >= 6.0.9",
       "Microsoft.NET.Test.Sdk >= 17.3.1",
       "NSubstitute >= 4.4.0",
@@ -9704,6 +9720,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Domain\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Domain\\Domain\\Domain.csproj"
+            },
             "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Presentation\\Presentation.csproj": {
               "projectPath": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Presentation\\Presentation.csproj"
             }
