@@ -488,3 +488,5 @@ C:\Dev\gitlab\tech-test-payment-api\tests\Presentation.Tests.Integration\obj\Deb
 C:\Dev\gitlab\tech-test-payment-api\tests\Presentation.Tests.Integration\obj\Debug\net6.0\refint\Presentation.Tests.Integration.dll
 C:\Dev\gitlab\tech-test-payment-api\tests\Presentation.Tests.Integration\obj\Debug\net6.0\Presentation.Tests.Integration.genruntimeconfig.cache
 C:\Dev\gitlab\tech-test-payment-api\tests\Presentation.Tests.Integration\obj\Debug\net6.0\ref\Presentation.Tests.Integration.dll
+C:\Dev\gitlab\tech-test-payment-api\tests\Presentation.Tests.Integration\bin\Debug\net6.0\Domain.dll
+C:\Dev\gitlab\tech-test-payment-api\tests\Presentation.Tests.Integration\bin\Debug\net6.0\Domain.pdb

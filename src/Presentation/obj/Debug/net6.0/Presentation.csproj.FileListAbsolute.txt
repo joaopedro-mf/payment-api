@@ -61,3 +61,5 @@ C:\Dev\gitlab\tech-test-payment-api\src\Presentation\obj\Debug\net6.0\Presentati
 C:\Dev\gitlab\tech-test-payment-api\src\Presentation\obj\Debug\net6.0\Presentation.pdb
 C:\Dev\gitlab\tech-test-payment-api\src\Presentation\obj\Debug\net6.0\Presentation.genruntimeconfig.cache
 C:\Dev\gitlab\tech-test-payment-api\src\Presentation\obj\Debug\net6.0\ref\Presentation.dll
+C:\Dev\gitlab\tech-test-payment-api\src\Presentation\bin\Debug\net6.0\Domain.dll
+C:\Dev\gitlab\tech-test-payment-api\src\Presentation\bin\Debug\net6.0\Domain.pdb

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "y/j+PtDOHEp5nqheIvSOFQHDOtUaAGwWOBUX0UsQBempJfqyKF52o97XOI1OMDF6+aeBN+vDwZ6d303VVOwKHw==",
+  "dgSpecHash": "ZgQj+HnloaFLE8Hg7Q+keDMfpRVtD0JpBYuNHqNbOK6bUt/8qZtvxgikMbuIEWLnNC//IkshV7eyW1sl0M8JXw==",
   "success": true,
   "projectFilePath": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [

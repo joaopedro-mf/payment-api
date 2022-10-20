@@ -89,6 +89,20 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "11.2.2",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -198,10 +212,16 @@
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Domain >= 1.0.0",
       "FluentValidation.DependencyInjectionExtensions >= 11.2.2",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 10.0.1"
     ]
@@ -232,7 +252,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Domain\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Domain\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

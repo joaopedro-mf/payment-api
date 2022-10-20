@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mjUjFg7iqZE7oTsK9ndwgCz4ndyL9CFFUqcd7o3FpXoZF0uq8o7k2Fbg9vSyWkrFBW1A/m/VITNG3e7reAEQ9Q==",
+  "dgSpecHash": "wCbt0665NVmMP2AW9b/LAQZq1dpHkyeBg0XsVvC84hTFQVWdxSbCnBFi2hUVATvZTH3DODysIwL/udrLNyii2A==",
   "success": true,
   "projectFilePath": "C:\\Dev\\gitlab\\tech-test-payment-api\\tests\\Presentation.Tests.Integration\\Presentation.Tests.Integration.csproj",
   "expectedPackageFiles": [

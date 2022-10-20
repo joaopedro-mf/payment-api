@@ -3224,6 +3224,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Domain": "1.0.0",
           "FluentValidation.DependencyInjectionExtensions": "11.2.2",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1"
         },
@@ -3237,6 +3238,10 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FluentValidation": "11.2.2",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },

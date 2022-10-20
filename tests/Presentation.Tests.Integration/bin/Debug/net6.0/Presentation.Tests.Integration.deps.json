@@ -34,6 +34,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Presentation.Tests.Integration/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Testing": "6.0.9",
           "Microsoft.NET.Test.Sdk": "17.3.1",
           "NSubstitute": "4.4.0",
@@ -2275,6 +2276,7 @@
       "xunit.runner.visualstudio/2.4.5": {},
       "Application/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "FluentValidation.DependencyInjectionExtensions": "11.2.2",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1"
         },
@@ -2283,6 +2285,18 @@
         },
         "compile": {
           "Application.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "FluentValidation": "11.2.2",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        },
+        "compile": {
+          "Domain.dll": {}
         }
       },
       "Infrastructure/1.0.0": {
@@ -5261,6 +5275,11 @@
       "hashPath": "xunit.runner.visualstudio.2.4.5.nupkg.sha512"
     },
     "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

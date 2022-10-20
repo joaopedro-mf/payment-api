@@ -56,7 +56,7 @@ public static class ProgramExtensions
                 {
                     Version = "v1",
                     Title = "tech_test_payment_api API ",
-                    Description = "An example to share an implementation of Minimal API in .NET 6.",
+                    Description = "Desafio Pottencial",
                     Contact = new OpenApiContact
                     {
                         Name = "João Pedro Miranda",
