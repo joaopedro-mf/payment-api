@@ -7,5 +7,5 @@ public interface IVendaRepository
 {
     Task<Venda> ObterVendaPorId(Guid id, CancellationToken cancellation);
     void AtualizarVenda(Guid id, StatusVenda statusVenda, CancellationToken cancellation);
-    void AdicionarVenda(Venda venda, CancellationToken cancellation);
+    Venda AdicionarVenda(Venda venda, CancellationToken cancellation);
 }

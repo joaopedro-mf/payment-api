@@ -15,7 +15,7 @@ internal class VendaRepository : IVendaRepository
     {
         this.context = context;
     }
-    public void AdicionarVenda(Venda venda, CancellationToken cancellation)
+    public Venda AdicionarVenda(Venda venda, CancellationToken cancellation)
     {
         throw new NotImplementedException();
     }
