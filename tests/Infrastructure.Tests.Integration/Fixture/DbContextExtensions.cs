@@ -29,9 +29,9 @@ internal static class DbContextExtensions
 
         var vendas = new List<Venda>()
         {
-            new Venda { Id = Guid.NewGuid(),Item = items, Vendedor = vendedores[0] },
-            new Venda { Id = Guid.NewGuid() ,Item = items, Vendedor = vendedores[1] },
-            new Venda { Id = Guid.NewGuid() ,Item = items, Vendedor =  vendedores[2]}
+            new Venda (items, vendedores[0]){ Id = Guid.NewGuid() },
+            new Venda (items, vendedores[1]){ Id = Guid.NewGuid() },
+            new Venda (items, vendedores[2]){ Id = Guid.NewGuid() }
         };
 
         context.Vendas.AddRange(vendas);

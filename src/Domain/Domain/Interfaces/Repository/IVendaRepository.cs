@@ -6,6 +6,6 @@ using Domain.Models;
 public interface IVendaRepository
 {
     Task<Venda> ObterVendaPorId(Guid id, CancellationToken cancellation);
-    void AtualizarVenda(Guid id, StatusVenda statusVenda, CancellationToken cancellation);
-    Venda AdicionarVenda(Venda venda, CancellationToken cancellation);
+    Task<bool> AtualizarVenda(Guid id, StatusVenda statusVenda, CancellationToken cancellation);
+    Task<Venda> AdicionarVenda(List<Item> items, Vendedor vendedor, CancellationToken cancellation);
 }

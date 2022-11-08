@@ -21,18 +21,19 @@ public class VendaRepositoryTests
         // Arrange
         var repository = this.fixture.Repository;
         var token = new CancellationTokenSource().Token;
-        var venda = this.fixture.Context.Vendas.FirstOrDefault();
+        var venda = this.fixture.Context.Vendas.ToList().FirstOrDefault();
 
         // Act
-        var result = repository.AdicionarVenda(venda, token);
+        var vendaResult = await repository.AdicionarVenda(venda.Item, venda.Vendedor, token);
 
         // Assert
-        _ = result.ShouldNotBeNull();
-        result.Id.ShouldBe(venda.Id);
+        vendaResult.ShouldNotBeNull();
+        vendaResult.Vendedor.Cpf.ShouldBe(venda.Vendedor.Cpf);
+        vendaResult.StatusVenda.ShouldBe(StatusVenda.AguardandoPagamento);
     }
 
     [Fact]
-    public async void AtualizarVenda_DeveReturnar_Ok()
+    public async void AtualizarVenda_DeveAtualizar_Status()
     {
         // Arrange
         var repository = this.fixture.Repository;
@@ -40,9 +41,10 @@ public class VendaRepositoryTests
         var venda = this.fixture.Context.Vendas.FirstOrDefault();
 
         // Act
-        repository.AtualizarVenda(venda.Id, StatusVenda.Cancelada, token);
+        var result = await repository.AtualizarVenda(venda.Id, StatusVenda.Cancelada, token);
 
         // Assert
+        result.ShouldBeTrue();
         var vendaAssert = this.fixture.Context.Vendas.FirstOrDefault(x => x.Id == venda.Id);
         vendaAssert.StatusVenda.ShouldBe(StatusVenda.Cancelada);
     }
