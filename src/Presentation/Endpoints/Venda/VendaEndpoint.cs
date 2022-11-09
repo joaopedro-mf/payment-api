@@ -1,10 +1,5 @@
 namespace tech_test_payment_api.Presentation.Endpoints.Venda;
-
-using MediatR;
-using Swashbuckle.AspNetCore.Annotations;
 using System.Diagnostics.CodeAnalysis;
-using System.Net.Mime;
-using tech_test_payment_api.Presentation.Errors;
 
 [ExcludeFromCodeCoverage]
 public static class VendaEndpoint

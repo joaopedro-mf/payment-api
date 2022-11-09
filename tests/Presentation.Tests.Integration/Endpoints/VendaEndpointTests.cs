@@ -1,13 +1,10 @@
 namespace tech_test_payment_api.Presentation.Tests.Integration.Endpoints;
 
-using System.Collections.Generic;
 using System.Net;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Models;
 using Extensions;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Shouldly;
 using Xunit;
 
