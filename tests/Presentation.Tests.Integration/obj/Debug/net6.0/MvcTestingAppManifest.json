@@ -1,6 +1,0 @@
-{
-  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Application",
-  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Domain\\Domain",
-  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Infrastructure",
-  "Presentation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Dev\\gitlab\\tech-test-payment-api\\src\\Presentation"
-}
