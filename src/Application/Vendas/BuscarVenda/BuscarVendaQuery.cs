@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Domain.Models;
 using MediatR;
 
-public class BuscarVendaCommand : IRequest<Venda>
+public class BuscarVendaQuery : IRequest<Venda>
 {
     [Required]
     public Guid Id { get; init; }
