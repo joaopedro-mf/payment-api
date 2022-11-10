@@ -6,6 +6,8 @@ using Domain.Enum;
 using Domain.Interfaces.Repository;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using tech_test_payment_api.Application.Common.Entities;
+using tech_test_payment_api.Application.Common.Exceptions;
 using tech_test_payment_api.Infrastructure.Context;
 
 internal class VendaRepository : IVendaRepository
@@ -35,17 +37,23 @@ internal class VendaRepository : IVendaRepository
 
     public async Task<bool> AtualizarVenda(Guid id, StatusVenda statusVenda, CancellationToken cancellation)
     {
-        var venda = this.context.Vendas.FirstOrDefault(v => v.Id == id);
+        try
+        {
+            var venda = this.context.Vendas.FirstOrDefault(v => v.Id == id);
 
-        if (venda is null)
+            NotFoundException.ThrowIfNull(venda, EntityType.Venda);
+
+            venda.StatusVenda = statusVenda;
+
+            _ = this.context.Update(venda);
+            _ = await this.context.SaveChangesAsync(cancellation);
+        }
+        catch
+        {
             return false;
+        }
 
-        var sucesso = venda.AtualizarVenda(statusVenda);
-
-        _ = this.context.Update(venda);
-        _ = await this.context.SaveChangesAsync(cancellation);
-
-        return sucesso;
+        return true;
 
     }
 
@@ -54,5 +62,14 @@ internal class VendaRepository : IVendaRepository
         return await this.context.Vendas.Where(v => v.Id == id)
                                         .AsNoTracking()
                                         .FirstOrDefaultAsync(cancellation);
+    }
+
+    public async Task<StatusVenda> ObterStatusVendaPorId(Guid id, CancellationToken cancellation)
+    {
+        var result = await this.context.Vendas.Where(v => v.Id == id)
+                                        .AsNoTracking()
+                                        .FirstOrDefaultAsync(cancellation);
+
+        return result.StatusVenda;
     }
 }

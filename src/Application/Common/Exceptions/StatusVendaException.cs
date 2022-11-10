@@ -2,6 +2,7 @@ namespace tech_test_payment_api.Application.Common.Exceptions;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
+using Domain.Enum;
 using tech_test_payment_api.Application.Common.Entities;
 
 [Serializable]
@@ -21,18 +22,18 @@ public class StatusVendaException : Exception
     /// <summary>Throws an <see cref="StatusVendaException"/> if <paramref name="argument"/> is null.</summary>
     /// <param name="argument">The reference type argument to validate as non-null.</param>
     /// <param name="entityType">The entity type of the <paramref name="argument"/> parameter.</param>
-    public static void ThrowIfNull(object argument, EntityType entityType)
+    public static void ThrowIfFalse(bool argument, StatusVenda status)
     {
-        if (argument is null)
+        if (!argument)
         {
-            Throw(entityType);
+            Throw(status);
         }
     }
 
     /// <summary>Throws an <see cref="StatusVendaException"/></summary>
     /// <param name="entityType">The entity type of the <paramref name="argument"/> parameter.</param>
-    public static void Throw(EntityType entityType)
+    public static void Throw(StatusVenda entityType)
     {
-        throw new StatusVendaException($"O {entityType} não é valido para esta venda.");
+        throw new StatusVendaException($"O Status {entityType} não é valido para esta venda.");
     }
 }

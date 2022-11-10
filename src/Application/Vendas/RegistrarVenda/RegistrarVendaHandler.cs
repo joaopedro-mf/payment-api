@@ -12,11 +12,8 @@ public class RegistrarVendaHandler : IRequestHandler<RegistrarVendaCommand, Vend
         this.repository = repository;
     }
 
-    public Task<Venda> Handle(RegistrarVendaCommand request, CancellationToken cancellationToken)
+    public async Task<Venda> Handle(RegistrarVendaCommand request, CancellationToken cancellationToken)
     {
-        //var result = await this.repository.GetAuthorById(request.Id, cancellationToken);
-
-        //TODO:
-        return Task.FromResult(new Venda(new List<Item>(), new Vendedor()));
+        return await this.repository.AdicionarVenda(request.ItensVendidos,request.Vendedor, cancellationToken);
     }
 }

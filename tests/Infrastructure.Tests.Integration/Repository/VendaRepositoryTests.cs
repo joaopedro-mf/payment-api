@@ -65,4 +65,19 @@ public class VendaRepositoryTests
         result.Id.ShouldBe(venda.Id);
     }
 
+    [Fact]
+    public async void ObterStatusVendaPorId_DeveReturnar_StatusVenda()
+    {
+        // Arrange
+        var repository = this.fixture.Repository;
+        var token = new CancellationTokenSource().Token;
+        var venda = this.fixture.Context.Vendas.FirstOrDefault();
+
+        // Act
+        var result = await repository.ObterStatusVendaPorId(venda.Id, token);
+
+        // Assert
+        result.ShouldBe(venda.StatusVenda);
+    }
+
 }

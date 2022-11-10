@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Domain.Interfaces.Repository;
 using Domain.Models;
 using MediatR;
+using tech_test_payment_api.Application.Common.Entities;
+using tech_test_payment_api.Application.Common.Exceptions;
 
 public class BuscarVendaHandler : IRequestHandler<BuscarVendaQuery, Venda>
 {
@@ -13,11 +15,12 @@ public class BuscarVendaHandler : IRequestHandler<BuscarVendaQuery, Venda>
     {
         this.repository = repository;
     }
-    public Task<Venda> Handle(BuscarVendaQuery request, CancellationToken cancellationToken)
+    public async Task<Venda> Handle(BuscarVendaQuery request, CancellationToken cancellationToken)
     {
-        //var result = await this.repository.GetAuthorById(request.Id, cancellationToken);
+        var result = await this.repository.ObterVendaPorId(request.Id, cancellationToken);
 
-        //TODO: 
-        return Task.FromResult(new Venda(new List<Item>(), new Vendedor()));
+        NotFoundException.ThrowIfNull(result, EntityType.Venda);
+
+        return result;
     }
 }

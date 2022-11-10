@@ -16,7 +16,7 @@ public class RegistrarVendaValidatorTests
         var command = new RegistrarVendaCommand
         {
             Vendedor = new Vendedor(),
-            ItensVendidos = new List<Item>()
+            ItensVendidos = new List<Item>() { new Item() }
         };
 
         // Act
@@ -42,7 +42,7 @@ public class RegistrarVendaValidatorTests
 
         // Assert
         _ = result.ShouldHaveValidationErrorFor(command => command.ItensVendidos)
-                  .WithErrorMessage("Lista de Itens Vazia");
+                  .WithErrorMessage("Lista de Itens Vazia.");
     }
 
     [Fact]
@@ -51,7 +51,7 @@ public class RegistrarVendaValidatorTests
         // Arrange
         var command = new RegistrarVendaCommand
         {
-            Vendedor = new Vendedor(),
+            Vendedor = null,
             ItensVendidos = new List<Item>()
         };
 
@@ -60,6 +60,6 @@ public class RegistrarVendaValidatorTests
 
         // Assert
         _ = result.ShouldHaveValidationErrorFor(command => command.Vendedor)
-                  .WithErrorMessage("Vendedor não informado");
+                  .WithErrorMessage("Vendedor não informado.");
     }
 }

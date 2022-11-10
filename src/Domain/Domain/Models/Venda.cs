@@ -13,18 +13,9 @@ namespace Domain.Models
             this.Vendedor = vendedor;
         }
 
-        public StatusVenda StatusVenda { get; private set; }
+        public StatusVenda StatusVenda { get; set; }
         public List<Item> Item { get; set; }
         public Vendedor Vendedor { get; set; }
 
-        public bool AtualizarVenda(StatusVenda statusVenda)
-        {
-            //TODO FAZER LOGICA DE ATUALIZAÇAO DO PROGRAMA
-            if (this.StatusVenda == statusVenda)
-                return false;
-
-            this.StatusVenda = statusVenda;
-            return true;
-        }
     }
 }

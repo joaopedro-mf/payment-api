@@ -43,17 +43,16 @@ public class AtualizarVendaValidatorTests
 
         // Assert
         _ = result.ShouldHaveValidationErrorFor(command => command.VendaId)
-                  .WithErrorMessage("Venda nao informada.");
+                  .WithErrorMessage("Venda não informada.");
     }
 
     [Fact]
-    public void Validator_DeveTerErroValidacao_InserirStatusVenda_AguardandoPagamento()
+    public void Validator_DeveTerErroValidacaoPara_StatusVendaNull()
     {
         // Arrange
         var command = new AtualizarVendaCommand
         {
-            VendaId = Guid.NewGuid(),
-            StatusVenda = StatusVenda.AguardandoPagamento
+            VendaId = Guid.NewGuid()
         };
 
         // Act
@@ -61,6 +60,6 @@ public class AtualizarVendaValidatorTests
 
         // Assert
         _ = result.ShouldHaveValidationErrorFor(command => command.StatusVenda)
-                  .WithErrorMessage("Status da Venda Invalido.");
+                  .WithErrorMessage("Status Venda não informado.");
     }
 }

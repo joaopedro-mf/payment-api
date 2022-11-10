@@ -40,7 +40,6 @@ public class RegistrarVendaHandlerTests
         _ = await context.Received(1).AdicionarVenda(query.ItensVendidos, query.Vendedor, token);
 
         _ = result.ShouldNotBeNull();
-        result.Id.ShouldNotBe(Guid.Empty);
         result.Vendedor.Email.ShouldBe(emailArrange);
         result.Item.Count.ShouldBe(1);
     }
