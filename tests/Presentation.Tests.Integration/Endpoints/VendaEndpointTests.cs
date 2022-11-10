@@ -9,7 +9,7 @@ using Shouldly;
 using Xunit;
 
 
-class VendaEndpointTests
+public class VendaEndpointTests
 {
     private static readonly ApiApplication Application = new();
 
@@ -23,7 +23,7 @@ class VendaEndpointTests
 
         // Act
         using var response = await client.GetAsync($"/api/vendas/{id}");
-        var result = (await response.Content.ReadAsStringAsync()).Deserialize<Venda>();
+        var result = (await response.Content.ReadAsStringAsync());
 
         // Assert
         response.StatusCode.ShouldBe(HttpStatusCode.OK);

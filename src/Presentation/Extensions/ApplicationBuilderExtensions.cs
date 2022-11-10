@@ -28,7 +28,7 @@ public static class ApplicationBuilderExtensions
                 };
 
                 // Prepare Generic Error
-                var apiError = new ApiError(contextFeature.Error.Message, contextFeature.Error.InnerException?.Message, contextFeature.Error.StackTrace);
+                var apiError = new ApiError(contextFeature.Error.Message, contextFeature.Error.InnerException?.Message);
 
                 // Set Response Details
                 context.Response.StatusCode = (int)statusCode;
