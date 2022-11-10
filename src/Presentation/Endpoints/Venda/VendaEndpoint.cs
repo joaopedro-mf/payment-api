@@ -9,6 +9,7 @@ using tech_test_payment_api.Application.Vendas.BuscarVenda;
 using tech_test_payment_api.Application.Vendas.RegistrarVenda;
 using Microsoft.AspNetCore.Http.Extensions;
 using tech_test_payment_api.Application.Vendas.AtualizarVenda;
+using Microsoft.AspNetCore.Http;
 
 [ExcludeFromCodeCoverage]
 public static class VendaEndpoint
@@ -30,8 +31,8 @@ public static class VendaEndpoint
                          {
                              var command = new RegistrarVendaCommand()
                              {
-                                 ItensVendidos = request.ItemsVendidos,
-                                 Vendedor = request.Vendedor
+                                 ItensVendidos = request.ObterItens(),
+                                 Vendedor = request.ObterVendedor()
                              };
 
                              return Results.Created(UriHelper.GetEncodedUrl(httpRequest), await mediator.Send(command));
@@ -52,12 +53,10 @@ public static class VendaEndpoint
                         VendaId = id
                     };
 
-                    _ = await mediator.Send(command);
-
-                    return Results.NoContent();
+                    return Results.Ok(await mediator.Send(command));
                 })
             .WithTags("Venda")
-            .WithMetadata(new SwaggerOperationAttribute("Atualizar Venda", " PUT /Venda/"))
+            .WithMetadata(new SwaggerOperationAttribute("Atualizar Venda", " PUT /venda/"))
             .Produces<bool>(StatusCodes.Status200OK, contentType: MediaTypeNames.Application.Json)
             .Produces<ApiError>(StatusCodes.Status400BadRequest, contentType: MediaTypeNames.Application.Json)
             .Produces<ApiError>(StatusCodes.Status500InternalServerError, contentType: MediaTypeNames.Application.Json);

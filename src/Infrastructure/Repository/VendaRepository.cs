@@ -60,6 +60,8 @@ internal class VendaRepository : IVendaRepository
     public async Task<Venda> ObterVendaPorId(Guid id, CancellationToken cancellation)
     {
         return await this.context.Vendas.Where(v => v.Id == id)
+                                        .Include(v => v.Vendedor)
+                                        .Include(v => v.Item)
                                         .AsNoTracking()
                                         .FirstOrDefaultAsync(cancellation);
     }

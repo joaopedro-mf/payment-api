@@ -21,13 +21,18 @@ public class VendaEndpointTests
         using var client = Application.CreateClient();
         var id = Guid.NewGuid();
 
+        var json = (new { vendedor = new { cpf = "string", email = "string", telefone = "string" }, itemsVendidos = new[] { new { descricao = "string", valor = 0 } } }).Serialize();
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        using var responseArrange = await client.PostAsync("/api/venda", content);
+        var resultArrange = (await responseArrange.Content.ReadAsStringAsync()).Deserialize<Venda>();
+
         // Act
-        using var response = await client.GetAsync($"/api/vendas/{id}");
-        var result = (await response.Content.ReadAsStringAsync());
+        using var response = await client.GetAsync($"/api/venda/{resultArrange.Id}");
+        var result = (await response.Content.ReadAsStringAsync()).Deserialize<Venda>();
 
         // Assert
         response.StatusCode.ShouldBe(HttpStatusCode.OK);
-
+        _ = response.Content.ShouldNotBeNull();
     }
 
     [Fact]
@@ -37,15 +42,16 @@ public class VendaEndpointTests
         // Arrange
         using var client = Application.CreateClient();
 
-        var json = (new { }).Serialize();
+        var json = (new { vendedor = new { cpf = "string", email = "string", telefone = "string" }, itemsVendidos = new[] { new { descricao = "string", valor = 0 } } }).Serialize();
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         // Act
-        using var response = await client.PostAsync("/api/vendas", content);
+        using var response = await client.PostAsync("/api/venda", content);
         var result = (await response.Content.ReadAsStringAsync()).Deserialize<Venda>();
 
         // Assert
-        response.StatusCode.ShouldBe(HttpStatusCode.OK);
+        response.StatusCode.ShouldBe(HttpStatusCode.Created);
+        _ = response.Content.ShouldNotBeNull();
 
     }
 
@@ -55,13 +61,18 @@ public class VendaEndpointTests
     {
         // Arrange
         using var client = Application.CreateClient();
-        var json = (new { }).Serialize();
+
+        var jsonArrange = (new { vendedor = new { cpf = "string", email = "string", telefone = "string" }, itemsVendidos = new[] { new { descricao = "string", valor = 0 } } }).Serialize();
+        var contentArrangge = new StringContent(jsonArrange, Encoding.UTF8, "application/json");
+        using var responseArrange = await client.PostAsync("/api/venda", contentArrangge);
+        var resultArrange = (await responseArrange.Content.ReadAsStringAsync()).Deserialize<Venda>();
+
+        var json = (new { statusVenda = 1 }).Serialize();
         var content = new StringContent(json, Encoding.UTF8, "application/json");
-        var id = Guid.NewGuid();
 
         // Act
-        using var response = await client.PutAsync($"/api/vendas/{id}", content);
-        var result = (await response.Content.ReadAsStringAsync()).Deserialize<Venda>();
+        using var response = await client.PutAsync($"/api/venda/{resultArrange.Id}", content);
+        var result = (await response.Content.ReadAsStringAsync()).Deserialize<bool>();
 
         // Assert
         response.StatusCode.ShouldBe(HttpStatusCode.OK);

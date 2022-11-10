@@ -33,7 +33,6 @@ public class BuscarVendaHandlerTests
         _ = await context.Received(1).ObterVendaPorId(query.Id, token);
 
         _ = result.ShouldNotBeNull();
-        result.Id.ShouldBe(Guid.Empty);
         result.Vendedor.Email.ShouldBe(emailArrange);
         result.Item.Count.ShouldBe(1);
     }
