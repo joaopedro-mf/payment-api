@@ -1,17 +1,17 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Stephen Walsh",
+  "author": "",
   "classifications": [
     "Clean Architecture",
     "Clean",
-    "Minimal API",
-    "Minimal",
+    "Payment API",
+    "Payment",
     "API",
     "Dotnet",
     "Docker"
   ],
   "identity": "tech_test_payment_api.Template",
-  "name": "Clean Minimal API Template",
+  "name": "Payment API ",
   "shortName": "tech_test_payment_api",
   "tags": {
     "language": "C#",
@@ -22,9 +22,9 @@
   "symbols": {
     "author": {
       "type": "parameter",
-      "displayName": "The name of the author of the solution.",
-      "defaultValue": "Stephen Walsh",
-      "replaces": "Stephen Walsh"
+      "displayName": "",
+      "defaultValue": "",
+      "replaces": ""
     }
   }
 }
